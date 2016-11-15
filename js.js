@@ -1,6 +1,7 @@
 var items=[];
 var quantity=[];
 var display=false;//indica lo stato di visualizzazione per le label items e il pulsante add
+var qmax=30;
 /*
 	visualizza / nasconde le label per inserire item , quantity e il pulsante add
 
@@ -38,10 +39,22 @@ function additem(){
 			}
 		}
 		if(!found){// non ho trovato l'item nella tabella, lo aggiungo
-			items.push(item);
-			quantity.push(q);
-			document.getElementById("tabella").rows[0].insertCell(-1).innerHTML=item;
-			document.getElementById("tabella").rows[1].insertCell(-1).innerHTML=q;
+			if(items.length<qmax){
+				items.push(item);
+				quantity.push(q);
+				document.getElementById("tabella").rows[0].insertCell(-1).innerHTML=item;
+				document.getElementById("tabella").rows[1].insertCell(-1).innerHTML=q;
+			}
+			else{
+				alert("quantita' massima superata");
+			}
 		}
 	}
+}
+
+/*
+	aggiorna la quantità massima
+*/
+function changeqmax(){
+	qmax=parseInt(document.getElementById("qmax").value);
 }
