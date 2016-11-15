@@ -1,23 +1,23 @@
 var items=[];
 var quantity=[];
-var display=false;
+var display=false;//indica lo stato di visualizzazione per le label items e il pulsante add
 /*
 	visualizza / nasconde le label per inserire item , quantity e il pulsante add
 
 */
 function showhide(){
-	if(display){
+	if(display){//se è visualizzat nascondo
 		document.getElementById("item").className="nascosto";
 		document.getElementById("quantity").className="nascosto";
 		document.getElementById("update").className="nascosto";
 
 	}
-	else{
+	else{//se è nascosto rendo visibile
 		document.getElementById("item").className="";
 		document.getElementById("quantity").className="";
 		document.getElementById("update").className="";
 	}
-	display=!display;
+	display=!display;//cambio il valore dello stato di visualizzazione
 }
 /*
 	aggiorna la quantità di un item o se l'item non è presente, lo aggiunge
